@@ -7,9 +7,50 @@ namespace desafios
         static void Main(string[] args)
         {
            // CrescimentoPopulacional();
-            Bazinga();
+          //  Bazinga();
+          TempoEvento();
         }
+public static void TempoEvento(){
+     int diaInicio, diaTermino, horaMomentoInicio, minutoMomentoInicio, segundoMomentoInicio;
+        int horaMomentoTermino, minutoMomentoTermino, segundoMomentoTermino;
+        //continue escrevendo a solucao
 
+        string[] dadosInicio = Console.ReadLine().Split();
+        diaInicio = Convert.ToInt32(dadosInicio[1]);
+
+        string[] dadosMomentoInicio = Console.ReadLine().Split(":");
+        horaMomentoInicio = Convert.ToInt32(dadosMomentoInicio[0]);
+        minutoMomentoInicio = Convert.ToInt32(dadosMomentoInicio[1]);
+        segundoMomentoInicio = Convert.ToInt32(dadosMomentoInicio[2]);
+
+
+        string[] dadosTermino = Console.ReadLine().Split();
+        diaTermino = Convert.ToInt32(dadosTermino[1]);
+
+        string[] dadosMomentoTermino = Console.ReadLine().Split(":");
+        horaMomentoTermino = Convert.ToInt32(dadosMomentoTermino[0]);
+        minutoMomentoTermino = Convert.ToInt32(dadosMomentoTermino[1]);
+        segundoMomentoTermino = Convert.ToInt32(dadosMomentoTermino[2]);
+
+
+        int transformaSegundosInicio = (segundoMomentoInicio + (diaInicio * 86400) + (horaMomentoInicio * 3600) + (minutoMomentoInicio * 60));
+        int transformaSegundosTermino = (segundoMomentoTermino + (diaTermino * 86400) + (horaMomentoTermino * 3600) + (minutoMomentoTermino * 60));
+        int somaTotalSegundos = (transformaSegundosTermino - transformaSegundosInicio);
+
+        int W = somaTotalSegundos / 86400;
+        int X = (somaTotalSegundos - (W * 86400)) / 3600;
+        int Y = (somaTotalSegundos - ((W * 86400) + (X * 3600))) / 60;
+        int Z = somaTotalSegundos - ((W * 86400) + (X * 3600) + (Y * 60));
+
+
+        Console.WriteLine("{0} dia(s)", W);
+        Console.WriteLine("{0} hora(s)", X);
+        Console.WriteLine("{0} minuto(s)", Y);
+        Console.WriteLine("{0} segundo(s)", Z);
+        
+Console.ReadLine();
+
+}
         public static void CrescimentoPopulacional()
         {
             int t = Convert.ToInt32(Console.ReadLine());
@@ -56,6 +97,7 @@ namespace desafios
 
         }
         public static void Bazinga(){
+
               int qtdTeste = int.Parse(Console.ReadLine());
             string v1, v2;
             for (int i = 1; i <=qtdTeste ; i++) //insira a variavel correta
