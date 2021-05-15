@@ -13,8 +13,42 @@ namespace desafios
             // TempoEvento();
             // Inverter();
             // Coordenadas();
-            ComprasSupermercado();
+            //ComprasSupermercado();
+            Multiplos();
 
+        }
+        public static void Multiplos(){
+             int suavariavel = int.Parse(Console.ReadLine());
+        int multiplos2 = 0, multiplos3 = 0, multiplos4 = 0, multiplos5 = 0;
+        //declare suas variaveis aqui   
+
+        string[] n = Console.ReadLine().Split();
+
+        //continue a solução
+        for (int i = 0; i <= suavariavel - 1; i++)
+        {
+
+            if (int.Parse(n[i]) % 2 == 0)
+            {
+                multiplos2++;
+            }
+            if (int.Parse(n[i]) % 3 == 0)
+            {
+                multiplos3++;
+            }
+            if (int.Parse(n[i]) % 4 == 0)
+            {
+                multiplos4++;
+            }
+            if (int.Parse(n[i]) % 5 == 0)
+            {
+                multiplos5++;
+            }
+        }
+        Console.WriteLine("{0} Multiplo(s) de 2", multiplos2);
+        Console.WriteLine("{0} Multiplo(s) de 3", multiplos3);
+        Console.WriteLine("{0} Multiplo(s) de 4", multiplos4);
+        Console.WriteLine("{0} Multiplo(s) de 5", multiplos5);
         }
         public static void ComprasSupermercado()
         {
