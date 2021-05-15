@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace desafios
 {
@@ -9,7 +11,68 @@ namespace desafios
             // CrescimentoPopulacional();
             //  Bazinga();
             // TempoEvento();
-            Inverter();
+            // Inverter();
+            // Coordenadas();
+            ComprasSupermercado();
+
+        }
+        public static void ComprasSupermercado()
+        {
+            var totalDeCasosDeTeste = int.Parse(Console.ReadLine());
+            // Implemente a solução aqui
+            string[] vet = null;
+            // string[] vet2 = null;
+            // string[] vet3 = null;
+            for (int i = 0; i < totalDeCasosDeTeste; i++)
+            {
+                vet = Console.ReadLine().Split();
+                var meuHashSetVet = new HashSet<string>(vet.OrderBy(x => x));
+                foreach (var item in meuHashSetVet)
+                {
+
+
+                    Console.Write(item + " ");
+                }
+                Console.WriteLine("");
+
+            }
+        }
+        public static void Coordenadas()
+        {
+            double x, y;
+            string[] vet = Console.ReadLine().Split();
+            x = double.Parse(vet[0]);
+            y = double.Parse(vet[1]);
+
+
+            if (x == 0.0 && y == 0.0)
+            {
+                Console.WriteLine("Origem");
+            }
+            else if (x == 0.0)
+            {
+                Console.WriteLine("Eixo Y");
+            }
+            else if (y == 0.0)
+            {
+                Console.WriteLine("Eixo X");
+            }
+            else if (x > 0.0 && y > 0.0)
+            {
+                Console.WriteLine("Q1");
+            }
+            else if (x < 0.0 && y > 0.0)
+            {
+                Console.WriteLine("Q2");
+            }
+            else if (x < 0.0 && y < 0.0)
+            {
+                Console.WriteLine("Q3");
+            }
+            else
+            {
+                Console.WriteLine("Q4");
+            }
         }
         public static void Inverter()
         {
