@@ -14,41 +14,172 @@ namespace desafios
             // Inverter();
             // Coordenadas();
             //ComprasSupermercado();
-            Multiplos();
-
+            //Multiplos();
+            // DataPizza();
+            // UltrapassarV();
+             converterTempo(); 
+            // NotasMoedas();
         }
-        public static void Multiplos(){
-             int suavariavel = int.Parse(Console.ReadLine());
-        int multiplos2 = 0, multiplos3 = 0, multiplos4 = 0, multiplos5 = 0;
-        //declare suas variaveis aqui   
 
-        string[] n = Console.ReadLine().Split();
-
-        //continue a solução
-        for (int i = 0; i <= suavariavel - 1; i++)
+        public static void NotasMoedas()
         {
+            double valor;
+            int inteiro, auxNotas, auxMoedas;
+            double auxMoedas2;
 
-            if (int.Parse(n[i]) % 2 == 0)
+            valor = Convert.ToDouble(Console.ReadLine());
+
+            inteiro = (int)valor;
+            valor *= 100;
+            auxMoedas = (int)valor;
+            auxMoedas2 = valor;
+
+            Console.WriteLine("NOTAS:");
+            Console.WriteLine("{0} nota(s) de R$ 100.00", inteiro / 100);
+            auxNotas = (inteiro % 100);
+
+            Console.WriteLine("{0} nota(s) de R$ 50.00", auxNotas / 50);
+            auxNotas = (auxNotas % 50);
+
+            Console.WriteLine("{0} nota(s) de R$ 20.00", auxNotas / 20);
+            auxNotas = (auxNotas % 20);
+
+            Console.WriteLine("{0} nota(s) de R$ 10.00", auxNotas / 10);
+            auxNotas = (auxNotas % 10);
+
+            Console.WriteLine("{0} nota(s) de R$ 5.00", auxNotas / 5);
+            auxNotas = (auxNotas % 5);
+
+            Console.WriteLine("{0} nota(s) de R$ 2.00", auxNotas / 2);
+            auxNotas = (auxNotas % 2);
+            //complete o código
+
+            Console.WriteLine("MOEDAS:");
+            Console.WriteLine("{0} moeda(s) de R$ 1.00", auxNotas / 1);
+            auxMoedas %= 100;
+
+            Console.WriteLine("{0} moeda(s) de R$ 0.50", auxMoedas / 50);
+            auxMoedas %= (50);
+
+            Console.WriteLine("{0} moeda(s) de R$ 0.25", auxMoedas / 25);
+            auxMoedas %= (25);
+
+            Console.WriteLine("{0} moeda(s) de R$ 0.10", auxMoedas / 10);
+            auxMoedas %= (10);
+
+            Console.WriteLine("{0} moeda(s) de R$ 0.05", auxMoedas / 05);
+            auxMoedas %= (05);
+
+            Console.WriteLine("{0} moeda(s) de R$ 0.01", auxMoedas / 01);
+            auxMoedas %= (01);
+            //complete o codigo
+            Console.ReadLine();
+        }
+        public static void converterTempo()
+        {
+            var timeInSeconds = int.Parse(Console.ReadLine());
+
+            var hours = timeInSeconds / 3600;
+            // timeInSeconds =timeInSeconds/60;
+            var minutes = (timeInSeconds - (hours * 3600))/60;
+            double seconds = timeInSeconds - ((hours * 3600)+(minutes*60));
+
+            Console.WriteLine($"{hours}:{minutes}:{seconds}", hours, minutes, seconds);
+          
+
+        }
+        public static void UltrapassarV()
+        {
+            var R = int.Parse(Console.ReadLine());
+            var V = 0;
+            var b = 0;
+            var c = 0;
+            while (V <= R)
             {
-                multiplos2++;
+                V = int.Parse(Console.ReadLine());
+
             }
-            if (int.Parse(n[i]) % 3 == 0)
+
+            while (b <= V)
             {
-                multiplos3++;
+                b += R;
+                c++;
+                R++;
             }
-            if (int.Parse(n[i]) % 4 == 0)
+
+
+            Console.WriteLine(c);
+            Console.ReadLine();
+
+        }
+
+        public static void DataPizza()
+        {
+            string[] line = Console.ReadLine().Split(" ");
+            int totalDePessoas = int.Parse(line[0]);
+            int totalDeDatas = int.Parse(line[1]);
+
+            string dataConsiderada = " ";
+
+            for (int i = 0; i < totalDeDatas; i++)
             {
-                multiplos4++;
-            }
-            if (int.Parse(n[i]) % 5 == 0)
-            {
-                multiplos5++;
+                int totalDePessoasQuePodemComparecer = 0;
+
+                string[] entradaDataConfirmacao = Console.ReadLine().Split(" ");
+                dataConsiderada = entradaDataConfirmacao[0];
+
+                for (int j = 1; j < entradaDataConfirmacao.Length; j++)
+                {
+                    if (int.Parse(entradaDataConfirmacao[j]) == 1)
+                    {
+                        totalDePessoasQuePodemComparecer++;
+                    }
+                }
+
+                if (totalDePessoasQuePodemComparecer == totalDePessoas)
+                {
+                    Console.WriteLine(dataConsiderada);
+                    break;
+                }
+                else if (i + 1 >= totalDeDatas)
+                {
+                    Console.WriteLine("Pizza antes de FdA");
+                }
             }
         }
-        Console.WriteLine("{0} Multiplo(s) de 2", multiplos2);
-        Console.WriteLine("{0} Multiplo(s) de 3", multiplos3);
-        Console.WriteLine("{0} Multiplo(s) de 4", multiplos4);
-        Console.WriteLine("{0} Multiplo(s) de 5", multiplos5);
+        public static void Multiplos()
+        {
+            int suavariavel = int.Parse(Console.ReadLine());
+            int multiplos2 = 0, multiplos3 = 0, multiplos4 = 0, multiplos5 = 0;
+            //declare suas variaveis aqui   
+
+            string[] n = Console.ReadLine().Split();
+
+            //continue a solução
+            for (int i = 0; i <= suavariavel - 1; i++)
+            {
+
+                if (int.Parse(n[i]) % 2 == 0)
+                {
+                    multiplos2++;
+                }
+                if (int.Parse(n[i]) % 3 == 0)
+                {
+                    multiplos3++;
+                }
+                if (int.Parse(n[i]) % 4 == 0)
+                {
+                    multiplos4++;
+                }
+                if (int.Parse(n[i]) % 5 == 0)
+                {
+                    multiplos5++;
+                }
+            }
+            Console.WriteLine("{0} Multiplo(s) de 2", multiplos2);
+            Console.WriteLine("{0} Multiplo(s) de 3", multiplos3);
+            Console.WriteLine("{0} Multiplo(s) de 4", multiplos4);
+            Console.WriteLine("{0} Multiplo(s) de 5", multiplos5);
         }
         public static void ComprasSupermercado()
         {
