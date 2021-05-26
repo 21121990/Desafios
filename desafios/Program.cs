@@ -17,8 +17,65 @@ namespace desafios
             //Multiplos();
             // DataPizza();
             // UltrapassarV();
-             converterTempo(); 
+            // converterTempo(); 
             // NotasMoedas();
+            // FormulaBhaskara();
+            // CoxinhaBueno();
+            CardapioAerio();
+
+        }
+        public static void CardapioAerio()
+        {
+            string[] line = Console.ReadLine().Split(" ");
+            string[] line2 = Console.ReadLine().Split(" ");
+            int total = 0;
+
+            for (int i = 0; i < line.Length; i++)
+            {
+
+                if (int.Parse(line[i]) - int.Parse(line2[i]) < 0)
+                {
+                    total = ((int.Parse(line[i]) - int.Parse(line2[i])) * -1) + total;
+
+                }
+
+            }
+            Console.WriteLine(total);
+        }
+        public static void CoxinhaBueno()
+        {
+            string[] line = Console.ReadLine().Split(" ");
+            double H = double.Parse(line[0]);
+            double P = double.Parse(line[1]);
+            var result = H / P;
+
+            Console.WriteLine(result.ToString("0.00"));
+        }
+        public static void FormulaBhaskara()
+        {
+            double a, b, c, delta, r1, r2;
+            string[] valor = Console.ReadLine().Split();
+
+            a = Convert.ToDouble(valor[0]);
+            b = Convert.ToDouble(valor[1]);
+            c = Convert.ToDouble(valor[2]);
+            //declare as demais variaveis
+
+            delta = (Math.Pow(b, 2) - (4 * a * c));
+            r1 = (-b + Math.Sqrt(delta)) / (2 * a);
+            r2 = (-b - Math.Sqrt(delta)) / (2 * a);
+
+            if ((a == 0) | (b * b - 4 * a * c < 0))
+            {
+
+                Console.WriteLine("Impossivel calcular");
+            }
+            else
+            {
+
+                Console.WriteLine("R1 = " + r1.ToString("0.00000"));
+                Console.WriteLine("R2 = " + r2.ToString("0.00000"));
+            }
         }
 
         public static void NotasMoedas()
@@ -81,11 +138,11 @@ namespace desafios
 
             var hours = timeInSeconds / 3600;
             // timeInSeconds =timeInSeconds/60;
-            var minutes = (timeInSeconds - (hours * 3600))/60;
-            double seconds = timeInSeconds - ((hours * 3600)+(minutes*60));
+            var minutes = (timeInSeconds - (hours * 3600)) / 60;
+            double seconds = timeInSeconds - ((hours * 3600) + (minutes * 60));
 
             Console.WriteLine($"{hours}:{minutes}:{seconds}", hours, minutes, seconds);
-          
+
 
         }
         public static void UltrapassarV()
