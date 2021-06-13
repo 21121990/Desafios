@@ -13,16 +13,61 @@ namespace desafios
             // TempoEvento();
             // Inverter();
             // Coordenadas();
-            //ComprasSupermercado();
-            //Multiplos();
+            // ComprasSupermercado();
+            // Multiplos();
             // DataPizza();
             // UltrapassarV();
             // converterTempo(); 
             // NotasMoedas();
             // FormulaBhaskara();
             // CoxinhaBueno();
-            CardapioAerio();
+            // CardapioAerio();
+            // VisitaFeira();
+            // Tuitando();
+            ValidacaoNota();
 
+        }
+        public static void ValidacaoNota()
+        {
+            double nota;
+            int qtdIgual = 0;
+            double soma = 0;
+            while (qtdIgual != 2 )
+            {
+                nota = Convert.ToDouble(Console.ReadLine());
+                if (nota>0  && nota <=10  )   //complete a condicional
+                {
+                    soma += nota;
+                    qtdIgual++;
+                }
+                else
+                {
+                    Console.WriteLine("nota invalida");
+                }
+                
+            }
+            Console.WriteLine("media = {0:0.00}", (  soma /2)); //insira a variavel correta
+        }
+        public static void Tuitando(){
+               string v = Console.ReadLine();
+            char[] arr = v.ToCharArray();
+            if( arr.Length <= 140 ) //complete a condicional
+                Console.WriteLine("TWEET");
+            else
+                Console.WriteLine("MUTE");
+
+        }
+
+        public static void VisitaFeira(){
+
+        int a, b, x;
+        string[] aux = Console.ReadLine().Split(" ");
+        a =int.Parse(aux[0]);
+        b =int.Parse(aux[1]);
+
+        x = a+b; //complete o código de acordo com o cálculo esperado
+
+        Console.WriteLine("X = {0}", x);
         }
         public static void CardapioAerio()
         {
