@@ -24,18 +24,60 @@ namespace desafios
             // CardapioAerio();
             // VisitaFeira();
             // Tuitando();
-            ValidacaoNota();
+            // ValidacaoNota();
+            // Triangulo();
+            DivisaoEuclidiana();
 
+        }
+        public static void DivisaoEuclidiana()
+        {
+            string[] valores = Console.ReadLine().Split();
+            int a = int.Parse(valores[0]);
+            int b = int.Parse(valores[1]);
+            int q, r;
+
+            q = a / b;
+            r = a % b;
+            if (r < 0)
+            {
+                double q1, r1 = 0.0;
+
+                r1 = r + Math.Sqrt(b * b);
+                q1 = (a - r1) / b;
+                Console.WriteLine("{0} {1}", q1, r1);
+            }
+            else
+            {
+                Console.WriteLine("{0} {1}", q, r);
+            }
+            Console.ReadLine();
+        }
+        public static void Triangulo()
+        {
+            double a, b, c;
+            string[] valor = Console.ReadLine().Split();
+            a = Convert.ToDouble(valor[0]);
+            b = Convert.ToDouble(valor[1]);
+            c = Convert.ToDouble(valor[2]);
+
+            if ((a + b > c) && (a + c > b) && (b + c > a)) //complete a condicional
+            {
+                Console.WriteLine("Perimetro = {0:0.0}", a + b + c); //complete a saida
+            }
+            else
+            {
+                Console.WriteLine("Area = {0:0.0}", ((a + b) * c) / 2); //complete a saida
+            }
         }
         public static void ValidacaoNota()
         {
             double nota;
             int qtdIgual = 0;
             double soma = 0;
-            while (qtdIgual != 2 )
+            while (qtdIgual != 2)
             {
                 nota = Convert.ToDouble(Console.ReadLine());
-                if (nota>0  && nota <=10  )   //complete a condicional
+                if (nota > 0 && nota <= 10)   //complete a condicional
                 {
                     soma += nota;
                     qtdIgual++;
@@ -44,30 +86,32 @@ namespace desafios
                 {
                     Console.WriteLine("nota invalida");
                 }
-                
+
             }
-            Console.WriteLine("media = {0:0.00}", (  soma /2)); //insira a variavel correta
+            Console.WriteLine("media = {0:0.00}", (soma / 2)); //insira a variavel correta
         }
-        public static void Tuitando(){
-               string v = Console.ReadLine();
+        public static void Tuitando()
+        {
+            string v = Console.ReadLine();
             char[] arr = v.ToCharArray();
-            if( arr.Length <= 140 ) //complete a condicional
+            if (arr.Length <= 140) //complete a condicional
                 Console.WriteLine("TWEET");
             else
                 Console.WriteLine("MUTE");
 
         }
 
-        public static void VisitaFeira(){
+        public static void VisitaFeira()
+        {
 
-        int a, b, x;
-        string[] aux = Console.ReadLine().Split(" ");
-        a =int.Parse(aux[0]);
-        b =int.Parse(aux[1]);
+            int a, b, x;
+            string[] aux = Console.ReadLine().Split(" ");
+            a = int.Parse(aux[0]);
+            b = int.Parse(aux[1]);
 
-        x = a+b; //complete o código de acordo com o cálculo esperado
+            x = a + b; //complete o código de acordo com o cálculo esperado
 
-        Console.WriteLine("X = {0}", x);
+            Console.WriteLine("X = {0}", x);
         }
         public static void CardapioAerio()
         {
