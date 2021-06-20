@@ -26,8 +26,35 @@ namespace desafios
             // Tuitando();
             // ValidacaoNota();
             // Triangulo();
-            DivisaoEuclidiana();
+            // DivisaoEuclidiana();
+            TiposTriangulo();
 
+        }
+
+        public static void TiposTriangulo()
+        {
+            string[] s = Console.ReadLine().Split(' ');
+            Array.Sort(s);
+            double C = double.Parse(s[0]);
+            double B = double.Parse(s[1]);
+            double A = double.Parse(s[2]);
+
+            //continue a solucao
+          if (A >= (B + C))
+                Console.WriteLine("NAO FORMA TRIANGULO");
+            else if (A * A == (B * B + C * C))
+                Console.WriteLine("TRIANGULO RETANGULO");
+            else if (A * A > (B * B + C * C))
+                Console.WriteLine("TRIANGULO OBTUSANGULO");
+            else if (A * A < (B * B + C * C))
+                Console.WriteLine("TRIANGULO ACUTANGULO");
+            if ((A == B) && (B == C) && (C==A))
+                Console.WriteLine("TRIANGULO EQUILATERO");
+
+            else if((A == B) || (B == C))
+                Console.WriteLine("TRIANGULO ISOSCELES");
+
+            Console.ReadLine();
         }
         public static void DivisaoEuclidiana()
         {
