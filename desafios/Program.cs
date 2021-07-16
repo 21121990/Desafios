@@ -27,8 +27,55 @@ namespace desafios
             // ValidacaoNota();
             // Triangulo();
             // DivisaoEuclidiana();
-            TiposTriangulo();
+            //TiposTriangulo();
+            //sequenciaLogica();
+            //media2();
+            positivosMedia();
 
+        }
+        public static void positivosMedia()
+        {
+            float a, total = 0, avg=0;
+            int positive = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                a = float.Parse(Console.ReadLine());
+                if (a>0)
+                {
+                    positive++;
+                    total=total+a;    
+                }
+            }
+            avg = total / positive;
+           
+            Console.WriteLine("{0} valores positivos", positive);            
+            Console.WriteLine("{0}",  Math.Round(avg,1));
+
+            Console.ReadLine();
+        }
+
+        public static void media2()
+        {
+            double A, B, C, MEDIA;
+            A = double.Parse(Console.ReadLine());
+            B = double.Parse(Console.ReadLine());
+            C = double.Parse(Console.ReadLine());
+            MEDIA = (((A * 2) + (B * 3) + (C * 5)) / 10);
+            Console.WriteLine("MEDIA = " + MEDIA.ToString("0.0"));
+            Console.ReadKey();
+
+        }
+
+        public static void sequenciaLogica()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine(i + " " + (i * i) + " " + (i * i * i));
+                Console.WriteLine(i + " " + ((i * i) + 1) + " " + ((i * i * i) + 1));
+            }
+            Console.ReadLine();
         }
 
         public static void TiposTriangulo()
@@ -40,7 +87,7 @@ namespace desafios
             double A = double.Parse(s[2]);
 
             //continue a solucao
-          if (A >= (B + C))
+            if (A >= (B + C))
                 Console.WriteLine("NAO FORMA TRIANGULO");
             else if (A * A == (B * B + C * C))
                 Console.WriteLine("TRIANGULO RETANGULO");
@@ -48,10 +95,10 @@ namespace desafios
                 Console.WriteLine("TRIANGULO OBTUSANGULO");
             else if (A * A < (B * B + C * C))
                 Console.WriteLine("TRIANGULO ACUTANGULO");
-            if ((A == B) && (B == C) && (C==A))
+            if ((A == B) && (B == C) && (C == A))
                 Console.WriteLine("TRIANGULO EQUILATERO");
 
-            else if((A == B) || (B == C))
+            else if ((A == B) || (B == C))
                 Console.WriteLine("TRIANGULO ISOSCELES");
 
             Console.ReadLine();
