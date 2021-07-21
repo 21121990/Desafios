@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace desafios
 {
@@ -30,26 +31,83 @@ namespace desafios
             //TiposTriangulo();
             //sequenciaLogica();
             //media2();
-            positivosMedia();
+            //positivosMedia();
+            // preechimentovetor1();
+            //trigoTabuleiro();
+            encaixe();
+
+        }
+        public static void encaixe()
+        {
+            int qt = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i< qt; i++) 
+            {
+                string[] v = Console.ReadLine().Split(" ");
+                string a = v[0];
+                string b = v[1];
+
+                if (b.LastIndexOf(a)==-1 || a.LastIndexOf(b) ==-1)
+                    Console.WriteLine("nao encaixa");
+                else if (b.LastIndexOf(a)!=-1 || a.LastIndexOf(b) !=-1)
+                    Console.WriteLine("encaixa");
+                else
+                    Console.WriteLine("nao encaixa");
+
+            }
+            Console.ReadKey();
+
+        }
+        public static void trigoTabuleiro()
+        {
+
+            int qtdTeste = int.Parse(Console.ReadLine());
+            for (int i = 0; i < qtdTeste; i++)
+            {
+
+                double grao = double.Parse(Console.ReadLine());
+                BigInteger value = (BigInteger)(Math.Pow(2, grao) / 12000);
+                Console.WriteLine("{0} kg", value);
+            }
+
+            Console.ReadKey();
+        }
+        public static void preechimentovetor1()
+        {
+            int valorLido = int.Parse(Console.ReadLine());
+            int[] n = new int[10];
+            n[0] = valorLido;
+            int cont = 0;
+            for (int i = 1; i < 10; i++)
+            {
+                n[i] = n[i - 1] * 2;
+            }
+
+            for (int j = 0; j < 10; j++)
+            {
+                Console.WriteLine("N[" + cont + "]" + " = " + n[j]);
+                cont++;
+            }
+            Console.ReadKey();
 
         }
         public static void positivosMedia()
         {
-            float a, total = 0, avg=0;
+            float a, total = 0, avg = 0;
             int positive = 0;
             for (int i = 0; i < 6; i++)
             {
                 a = float.Parse(Console.ReadLine());
-                if (a>0)
+                if (a > 0)
                 {
                     positive++;
-                    total=total+a;    
+                    total = total + a;
                 }
             }
             avg = total / positive;
-           
-            Console.WriteLine("{0} valores positivos", positive);            
-            Console.WriteLine("{0}",  Math.Round(avg,1));
+
+            Console.WriteLine("{0} valores positivos", positive);
+            Console.WriteLine("{0}", Math.Round(avg, 1));
 
             Console.ReadLine();
         }
