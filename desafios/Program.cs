@@ -34,22 +34,58 @@ namespace desafios
             //positivosMedia();
             // preechimentovetor1();
             //trigoTabuleiro();
-            encaixe();
+            // encaixe();
+            media3();
 
+        }
+        public static void media3()
+        {
+            float a, b, c, d, avg;
+            string[] values = Console.ReadLine().Split(' ');
+            a = float.Parse(values[0]);
+            b = float.Parse(values[1]);
+            c = float.Parse(values[2]);
+            d = float.Parse(values[3]);
+            avg = ((a * 2 + b * 3 + c * 4 + d * 1) / 10);            
+            Console.WriteLine("Media: " + Math.Round(avg,1).ToString("0.0"));
+            if (avg >= (7.0))
+            {
+                Console.WriteLine("Aluno aprovado.");
+            }
+            if (avg < (5.0))
+            {
+                Console.WriteLine("Aluno reprovado.");
+            }
+            if (avg >= 5.0 &&  avg <= (6.9))
+            {
+                Console.WriteLine("Aluno em exame.");                
+                float e = float.Parse(Console.ReadLine());
+                Console.WriteLine("Nota do exame: " + Math.Round(e,1).ToString("0.0"));
+                avg = (e + avg) / 2;
+                if (avg >= (5.0))
+                {
+                    Console.WriteLine("Aluno aprovado.");
+                }
+                if (avg <= (4.9))
+                {
+                    Console.WriteLine("Aluno reprovado");
+                }
+                Console.WriteLine("Media final: " + Math.Round(avg,1).ToString("0.0"));
+            }
+
+            Console.ReadKey();
         }
         public static void encaixe()
         {
             int qt = int.Parse(Console.ReadLine());
-            
-            for (int i = 0; i< qt; i++) 
+
+            for (int i = 0; i < qt; i++)
             {
                 string[] v = Console.ReadLine().Split(" ");
                 string a = v[0];
                 string b = v[1];
 
-                if (b.LastIndexOf(a)==-1 || a.LastIndexOf(b) ==-1)
-                    Console.WriteLine("nao encaixa");
-                else if (b.LastIndexOf(a)!=-1 || a.LastIndexOf(b) !=-1)
+                if (a.EndsWith(b))
                     Console.WriteLine("encaixa");
                 else
                     Console.WriteLine("nao encaixa");
