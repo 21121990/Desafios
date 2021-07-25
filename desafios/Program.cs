@@ -25,7 +25,7 @@ namespace desafios
             // CardapioAerio();
             // VisitaFeira();
             // Tuitando();
-            // ValidacaoNota();
+            //ValidacaoNota();
             // Triangulo();
             // DivisaoEuclidiana();
             //TiposTriangulo();
@@ -36,8 +36,88 @@ namespace desafios
             //trigoTabuleiro();
             // encaixe();
             //media3();
-            TempoJogoMinutos();
+            //TempoJogoMinutos();
+            //ConsumoMedioAutomovel();
 
+            ValidacaoNota2();
+
+
+        }
+        public static void ValidacaoNota2()
+        {
+            int status = 0, status2 = 1;
+            double N1, N2 = 0, media = 0;
+
+            //continue a solução ou implemente da sua maneira
+            while (status == 0)
+            {
+                N1 = double.Parse(Console.ReadLine());
+                status2 = 1;
+                if (N1 > 10 || N1 < 0)
+                {
+                    Console.WriteLine("nota invalida");
+                }
+                else if (N1 <= 10 || N1 > 0)
+                {
+                    while (media == 0)
+                    {
+                        N2 = double.Parse(Console.ReadLine());
+
+                        if (N2 > 10 || N2 < 0)
+                        {
+                            Console.WriteLine("nota invalida");
+                        }
+                        else
+                        {
+                            media = (N1 + N2) / 2;
+                        }
+                    }
+                }
+                if (media != 0)
+                {
+
+
+                    Console.WriteLine("media = " + media.ToString("N2"));
+
+                    while (status2 == 1)
+                    {
+                        Console.WriteLine("novo calculo (1-sim 2-nao)");
+                        double res = double.Parse(Console.ReadLine());
+
+                        if (res < 1 || res > 2)
+                        {
+                            status2 = 1;
+                        }
+                        else if (res == 1)
+                        {
+                            status2 = 2;
+                            N1 =0; 
+                            N2 =0;
+                            media = 0;
+                        }
+                        else
+                        {
+                            status = 1;
+                            status2 = 2;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public static void ConsumoMedioAutomovel()
+        {
+            int distancia;
+            double combustivelGasto, consumoMedio;
+
+            distancia = Convert.ToInt32(Console.ReadLine());
+            combustivelGasto = Convert.ToDouble(Console.ReadLine());
+
+            consumoMedio = distancia / combustivelGasto; //atribua a formula para que o codigo funcione corretamente
+
+            Console.WriteLine("{0:0.000} km/l", consumoMedio);
+            Console.ReadKey();
         }
         public static void TempoJogoMinutos()
         {
